@@ -25,7 +25,7 @@ class BinarySearchTree {
     }
 
     insertNode(root, newNode){
-        if(root.value < newNode.value){
+        if(newNode.value < root.value){
             if(root.left === null){
                 root.left = newNode
             }else{
@@ -39,11 +39,26 @@ class BinarySearchTree {
             }
         }
     }
+
+    search(root, value){
+        if(!root){
+            return false
+        }
+        if(root.value === value){
+            return true
+        }else if(value < root.value){
+            return this.search(root.left, value)
+        }else {
+            return this.search(root.right, value)
+        }
+    }
 }
 
 let tree = new BinarySearchTree()
 
-console.log(tree.isEmpty());
+console.log('tree is empty ?',tree.isEmpty());
 tree.insert(5)
 tree.insert(10)
 tree.insert(3)
+
+console.log(tree.search(tree.root,3))
