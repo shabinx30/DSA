@@ -35,37 +35,37 @@
 
 function binary(target, arr) {
 
-        let leftIndex = 0
-        let rightIndex = arr.length - 1
-        while (leftIndex <= rightIndex) {
-            let midIndex = Math.floor((leftIndex + rightIndex) / 2)
-    
-    
-            if (target === arr[midIndex]) {
-                return midIndex
-            }
-    
-            if (target < arr[midIndex]) {
-                return rightIndex = midIndex - 1
-            } else {
-                return leftIndex = midIndex + 1
-            }
+    let start = 0
+    let end = arr.length - 1
+    while (start <= end) {
+        let midIndex = Math.floor((start + end) / 2)
+
+
+        if (target === arr[midIndex]) {
+            return midIndex
         }
-    
-        return -1
+
+        if (arr[midIndex] < target) {
+            start = midIndex + 1
+        } else {
+            end = midIndex - 1
+        }
     }
-    
-    console.log(binary(7, [1, 2, 3, 5, 7]))
+
+    return -1
+}
+
+console.log(binary(7, [1, 2, 3, 5, 7]))
 
 
 // linear search in js
 
-let arr = [1,2,3,4,2,9,4,6]
-let target = 9
+// let arr = [1,2,3,4,2,9,4,6]
+// let target = 9
 
-for(let i=0;i<arr.length;i++){
-    if(arr[i]==target){
-        console.log(i);
-        break
-    }
-}
+// for(let i=0;i<arr.length;i++){
+//     if(arr[i]==target){
+//         console.log(i);
+//         break
+//     }
+// }

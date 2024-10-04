@@ -36,8 +36,11 @@ class HashTable{
 let table = new HashTable(5)
 
 table.insert('name','shabin')
-table.insert('age','26')
+table.insert('age','19')
 table.insert('place','kerala')
+table.insert('place1','kerala')
+table.insert('place2','kerala')
+table.insert('place3','kerala')
 
 console.log(table.table);
 
