@@ -23,8 +23,27 @@ class BinarySearchTree {
             this.insertNode(this.root, newNode)
         }
     }
+
+    insertNode(root, newNode){
+        if(root.value < newNode.value){
+            if(root.left === null){
+                root.left = newNode
+            }else{
+                this.insertNode(root.left, newNode)
+            }
+        }else{
+            if(root.right === null){
+                root.right = newNode
+            }else{
+                this.insertNode(this.right, newNode)
+            }
+        }
+    }
 }
 
 let tree = new BinarySearchTree()
 
 console.log(tree.isEmpty());
+tree.insert(5)
+tree.insert(10)
+tree.insert(3)
