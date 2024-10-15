@@ -6,6 +6,34 @@ class Node {
     }
 }
 
+// normal tree
+
+function isValide(root, min = -Infinity, max = Infinity) {
+    if (!root) {
+        return true
+    }
+    if (root.value < min || root.value > max) {
+        return false
+    }
+    return isValide(root.left, min, root.value) && isValide(root.right, root.value, max)
+}
+
+// const rtree = new Node(10)
+
+const root = new Node(10);
+root.left = new Node(5);
+root.right = new Node(15);
+root.left.left = new Node(2);
+root.left.right = new Node(7);
+root.right.left = new Node(12);
+root.right.right = new Node(20);
+
+console.log(isValide(root));
+
+
+
+//binary search tree
+
 class BinarySearchTree {
     constructor(){
         this.root = null
@@ -35,7 +63,7 @@ class BinarySearchTree {
             if(root.right === null){
                 root.right = newNode
             }else{
-                this.insertNode(this.right, newNode)
+                this.insertNode(root.right, newNode)
             }
         }
     }
@@ -76,17 +104,35 @@ class BinarySearchTree {
             console.log(root.value)
         }
     }
+    
+    min(root){
+        if(!root.left){
+            return root.value
+        }
+        return this.min(root.left)
+    }
+
+    max(root){
+        if(!root.right){
+            return root.value
+        }
+        return this.max(root.right)
+    }
+
+    depth(){
+        
+    }
 }
 
 let tree = new BinarySearchTree()
 
-console.log('tree is empty ?',tree.isEmpty());
-tree.insert(10)
-tree.insert(5)
-tree.insert(15)
-tree.insert(3)
-tree.insert(7)
+// console.log('tree is empty ?',tree.isEmpty());
+// tree.insert(10)
+// tree.insert(5)
+// tree.insert(15)
+// tree.insert(3)
+// tree.insert(7)
 
-console.log(tree.search(tree.root,3))
+// console.log(tree.search(tree.root,3))
 
-tree.postOrder(tree.root)
+// tree.postOrder(tree.root)
