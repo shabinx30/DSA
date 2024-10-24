@@ -26,7 +26,7 @@ function binary(target, arr) {
 // console.log(binary(7, [1, 2, 3, 5, 7]))
 
 
-// linear search
+// linear search ***********
 
 function linearSearch(arr,target){
     for(let i=0;i<arr.length;i++){
