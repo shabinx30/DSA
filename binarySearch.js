@@ -1,5 +1,5 @@
 
-// binary search in js
+// binary search in js **************
 
 function binary(target, arr) {
 
