@@ -57,6 +57,8 @@ class MinHeap {
     }
 
     printHeap() {
+        // console.log(this.heap);
+        
         console.log(this.heap.join(', '));  // Print heap elements as a comma-separated string
     }
 }
@@ -70,6 +72,9 @@ heap.insert(15);
 
 heap.printHeap();
 
-console.log(heap.peek());
-console.log(heap.remove());
+// console.log(heap.peek());
+// console.log(heap.remove());
+
+console.log('last');
+
 heap.printHeap();

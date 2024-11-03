@@ -117,55 +117,183 @@
 // console.log('maximum element',bst.max(bst.root));
 
 
-class Node{
-    constructor(){
-        this.children = {};
-        this.isEndOfWord = false
+
+
+
+// trie in js **********************
+
+
+// class Node{
+//     constructor(){
+//         this.children = {};
+//         this.isEndOfWord = false
+//     }
+// }
+
+// class Trie{
+//     constructor(){
+//         this.root = new Node()
+//     }
+
+//     insert(word){
+//         let node = this.root
+//         for(let char of word){
+//             if(!node.children[char]){
+//                 node.children[char] = new Node()
+//             }
+//             node = node.children[char]
+//         }
+//         node.isEndOfWord = true
+//     }
+
+//     search(word){
+//         let node = this.root
+//         for(let char of word){
+//             if(!node.children[char]){
+//                 return false
+//             }
+//             node = node.children[char]
+//         }
+//         return true
+//     }
+
+//     prefix(word){
+//         let node = this.root;
+//         for(let char of word){
+//             if(!node.children[char]){
+//                 return false
+//             }
+//             node = node.children[char]
+//         }
+//         return true
+//     }
+// }
+
+// let trie = new Trie()
+// trie.insert('cat')
+// trie.insert('car')
+// // console.dir(trie.root, {depth: null})
+
+// console.log(trie.prefix('cat'));
+
+
+
+
+// max Heap in 
+
+
+// class MaxHeap {
+//     constructor() {
+//         this.heap = [];
+//     }
+
+//     getParentIndex(i) {
+//         return Math.floor((i - 1) / 2);
+//     }
+
+//     getLeftChildIndex(i) {
+//         return 2 * i + 1;
+//     }
+
+//     getRightChildIndex(i) {
+//         return 2 * i + 2;
+//     }
+
+//     swap(i1, i2) {
+//         [this.heap[i1], this.heap[i2]] = [this.heap[i2], this.heap[i1]];
+//     }
+
+//     insert(value) {
+//         this.heap.push(value);
+//         this.heapifyUp();
+//     }
+
+//     heapifyUp() {
+//         let index = this.heap.length - 1;
+//         // Adjust condition to ensure max-heap property
+//         while (index > 0 && this.heap[index] > this.heap[this.getParentIndex(index)]) {
+//             this.swap(index, this.getParentIndex(index));
+//             index = this.getParentIndex(index);
+//         }
+//     }
+
+//     remove() {
+//         if (this.heap.length === 1) return this.heap.pop();
+
+//         const root = this.heap[0];
+//         this.heap[0] = this.heap.pop();
+//         this.heapifyDown();
+//         return root;
+//     }
+
+//     heapifyDown() {
+//         let index = 0;
+//         while (this.getLeftChildIndex(index) < this.heap.length) {
+//             let largerChildIndex = this.getLeftChildIndex(index);
+//             if (this.getRightChildIndex(index) < this.heap.length && this.heap[this.getRightChildIndex(index)] > this.heap[largerChildIndex]) {
+//                 largerChildIndex = this.getRightChildIndex(index);
+//             }
+
+//             // Adjust condition to ensure max-heap property
+//             if (this.heap[index] >= this.heap[largerChildIndex]) break;
+
+//             this.swap(index, largerChildIndex);
+//             index = largerChildIndex;
+//         }
+//     }
+
+//     printHeap() {
+//         console.log(this.heap.join(', '));  // Print heap elements as a comma-separated string
+//     }
+// }
+
+// // Example usage
+// const maxHeap = new MaxHeap();
+// maxHeap.insert(10);
+// maxHeap.insert(20);
+// maxHeap.insert(5);
+// maxHeap.insert(15);
+
+// maxHeap.printHeap();  // Should print the max heap in heap array form
+
+// console.log(maxHeap.remove());  // Removes and returns the root (largest element)
+// maxHeap.printHeap();            // Prints the max heap after removal
+
+
+
+
+//heap sort *************
+
+function heapify(arr,n,i){
+    let largest = i;
+    let left = i*2+1;
+    let right = i*2+2;
+    if(left < n && arr[left] > arr[largest]){
+        largest = left
+    }
+    if(right < n && arr[right] > arr[largest]){
+        largest = right
+    }
+    if(largest !== i){
+        [arr[i],arr[largest]] = [arr[largest],arr[i]]
+        heapify(arr, n, largest)
     }
 }
 
-class Trie{
-    constructor(){
-        this.root = new Node()
-    }
 
-    insert(word){
-        let node = this.root
-        for(let char of word){
-            if(!node.children[char]){
-                node.children[char] = new Node()
-            }
-            node = node.children[char]
-        }
-        node.isEndOfWord = true
+function heapSort(arr){
+    let n = arr.length;
+    for(let i = n-1;i>=0;i--){
+        heapify(arr,n,i)
     }
-
-    search(word){
-        let node = this.root
-        for(let char of word){
-            if(!node.children[char]){
-                return false
-            }
-            node = node.children[char]
-        }
-        return true
-    }
-
-    prefix(word){
-        let node = this.root;
-        for(let char of word){
-            if(!node.children[char]){
-                return false
-            }
-            node = node.children[char]
-        }
-        return true
+    for(let i = n-1;i>=0;i--){
+        [arr[0],arr[i]] = [arr[i],arr[0]]
+        heapify(arr,n,0)
     }
 }
 
-let trie = new Trie()
-trie.insert('cat')
-trie.insert('car')
-// console.dir(trie.root, {depth: null})
+let arr = [12, 11, 13, 5, 6, 7];
 
-console.log(trie.prefix('cat'));
+heapSort(arr)
+
+console.log(arr)
