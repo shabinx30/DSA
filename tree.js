@@ -127,12 +127,12 @@ class BinarySearchTree {
 let tree = new BinarySearchTree()
 
 // console.log('tree is empty ?',tree.isEmpty());
-tree.insert(10)
+tree.insert(-10)
+tree.insert(-3)
+tree.insert(0)
 tree.insert(5)
-tree.insert(15)
-tree.insert(3)
-tree.insert(7)
+tree.insert(9)
 
 // console.log(tree.search(tree.root,3))
 
-tree.preOrder(tree.root)
+tree.inOrder(tree.root)

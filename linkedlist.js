@@ -121,19 +121,39 @@ class LinkedList {
     }
 }
 
-let list = new LinkedList()
+let list1 = new LinkedList()
+let list2 = new LinkedList()
 
 // console.log(list.isEmpty());
 // console.log(list.print());
 
-list.insert(3,0)
-list.insert(5,0)
-list.insert(4,1)
+list1.insert(3,0)
+list1.insert(5,0)
+list1.insert(4,1)
 
-list.print()
+list2.insert(3,0)
+list2.insert(5,0)
+list2.insert(4,1)
 
-list.reverse()
 
-list.print()
+// console.log(list1.head)
+// console.log(list2.head)
 
-console.log('middle of list',list.middle());
+
+function mergeList(l1, l2){
+    let curr = l1
+    while(curr.next){
+        curr = curr.next
+    }
+    curr.next = l2
+
+    console.dir(l1, {depth: null})
+}
+
+mergeList(list1.head, list2.head)
+
+// list1.reverse()
+
+// list1.print()
+
+// console.log('middle of list1',list1.middle());

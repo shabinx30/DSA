@@ -27,24 +27,24 @@
 
   // Quik sort 
 
-function quickSort(arr) {
-    if (arr.length <= 1) {
-      return arr
-    }
-    let pivot = arr[arr.length - 1];
-    let left = [];
-    let right = [];
-    for (let i = 0; i < arr.length - 1; i++) {
-        if(arr[i] < pivot){
-            left.push(arr[i])
-        }else{
-            right.push(arr[i])
-        }
-    }
-  return [...quickSort(left), pivot, ...quickSort(right)];
-}
+// function quickSort(arr) {
+//     if (arr.length <= 1) {
+//       return arr
+//     }
+//     let pivot = arr[arr.length - 1];
+//     let left = [];
+//     let right = [];
+//     for (let i = 0; i < arr.length - 1; i++) {
+//         if(arr[i] < pivot){
+//             left.push(arr[i])
+//         }else{
+//             right.push(arr[i])
+//         }
+//     }
+//   return [...quickSort(left), pivot, ...quickSort(right)];
+// }
 
-console.log(quickSort([31, 10, 8, 2, 9, 11]));
+// console.log(quickSort([31, 10, 8, 2, 9, 11]));
   
 
 //   function BubbleSort(arr){
@@ -83,3 +83,6 @@ console.log(quickSort([31, 10, 8, 2, 9, 11]));
 // };
 
 // console.log(sortPeople(["Mary","John","Emma"],[180,165,170]))
+
+
+console.log(33333333333333333333333333333333333333333 % 2 != 0);
