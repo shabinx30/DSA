@@ -119,6 +119,22 @@ class LinkedList {
         
         return slow.value
     }
+
+    removeDuplicates(){
+        let curr = this.head
+        let prev = null
+        let set = new Set()
+
+        while(curr){
+            if(set.has(curr.value)){
+                prev.next = curr.next
+            }else{
+                set.add(curr.value)
+                prev = curr
+            }
+            curr = curr.next
+        }
+    }
 }
 
 let list1 = new LinkedList()
