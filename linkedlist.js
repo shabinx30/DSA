@@ -1,12 +1,3 @@
-// finding the samllest number among three variables ************
-
-// let a = 10;
-// let b = 30;
-// let c = 20;
-
-// console.log(a<b&&a<c?'a':b<c?'b':'c')
-
-
 class Node {
     constructor(value){
         this.value = value
@@ -152,6 +143,15 @@ class LinkedList {
         }
         prev.next = null
     }
+
+    merge(l1) {
+        let curr = this.head
+        while(curr.next) {
+            curr = curr.next
+        }
+        curr.next = l1
+        return this.head
+    }
 }
 
 let list1 = new LinkedList()
@@ -161,8 +161,8 @@ let list2 = new LinkedList()
 // console.log(list.print());
 
 list1.insert(3,0)
-list1.insert(5,0)
-list1.insert(4,1)
+list1.insert(1,0)
+list1.insert(2,1)
 
 list2.insert(3,0)
 list2.insert(5,0)
@@ -172,18 +172,7 @@ list2.insert(4,1)
 // console.log(list1.head)
 // console.log(list2.head)
 
-
-function mergeList(l1, l2){
-    let curr = l1
-    while(curr.next){
-        curr = curr.next
-    }
-    curr.next = l2
-
-    console.dir(l1, {depth: null})
-}
-
-mergeList(list1.head, list2.head)
+console.dir(list1.merge(list2), {depth: null})
 
 // list1.reverse()
 
