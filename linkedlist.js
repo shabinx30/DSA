@@ -135,6 +135,23 @@ class LinkedList {
             curr = curr.next
         }
     }
+
+    delete(index) {
+        if (index < 0) {
+            return null;
+        }
+        if (index == 0) {
+            return (this.head = this.head.next);
+        }
+        let prev = this.head;
+        for (let i = 0; i < index; i++) {
+            prev = prev.next
+        }
+        if(prev?.next?.next) {
+            return (prev.next = prev.next.next)
+        }
+        prev.next = null
+    }
 }
 
 let list1 = new LinkedList()
