@@ -119,6 +119,13 @@ class BinarySearchTree {
         return this.max(root.right)
     }
 
+    getHeight(root) {
+        if(!root) return -1
+        const leftHeight = this.getHeight(root.left);
+        const rightHeight = this.getHeight(root.right);
+        return 1 + Math.max(leftHeight, rightHeight)
+    }
+
     depth(){
         
     }
@@ -135,4 +142,6 @@ tree.insert(9)
 
 // console.log(tree.search(tree.root,3))
 
-tree.inOrder(tree.root)
+// tree.inOrder(tree.root)
+
+console.log(tree.getHeight(tree.root))
